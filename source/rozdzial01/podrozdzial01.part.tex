@@ -1,2 +1,82 @@
-\section{Section heading}
-rodzial01-podrozdzial01
+\section{Liczby naturalne, całkowite i wymierne}
+Zbiór liczb naturalnych oznaczamy jako $\mathbb{N}$ i jego definicja jest jak następuje
+$$ \mathbb{N} := \{ 1, 2, 3, \ldots\}.$$
+
+Liczby całkowite oznaczamy jako $\mathbb{Z}$ i definiujemy jako sume liczb naturalnych, liczb przeciwnych do naturalnych oraz zera
+$$ \mathbb{Z} := \mathbb{N} \cup \{ a | -a \in \mathbb{N} \} \cup \{0\}. $$
+
+Liczby wymierne oznaczamy jako $\mathbb{Q}$  i definiujemy następująco
+$$ p \in \mathbb{Q} \iff p = \frac{n}{m} \quad \mbox{gdzie}\quad n,m \in \mathbb{Z}, m\neq 0.$$
+
+
+\subsection{Własności liczb wymiernych}
+Poniżej wypiszemy podstawowe własności liczb wymiernych
+\begin{enumerate}
+\item prawo przemienności: $\forall p,q\in\mathbb{Q}$
+$$ p + q = q + p, \quad p \cdot q = q \cdot p$$
+\item prawo łączności: $\forall p,q,r\in\mathbb{Q}$
+\begin{align*}
+(p+q) + r & = p + (q + r) \\
+(p\cdot q) \cdot r & = q \cdot (q \cdot r)
+\end{align*}
+\item prawo rozdzielności dodawania względem mnożenia: $\forall p,q,r\in\mathbb{Q}$
+$$ (p+q) \cdot r = p\cdot r + q\cdot r $$
+\item relacja porządku $\forall p,q\in\mathbb{Q}$
+$$ p=q \vee p<q \vee p>q $$
+\item węwnętrzność działania dodawania i mnożenia dla liczb dodatnich
+Niech $p>0 \wedge q>0$, wówczas
+\begin{align*}
+p+q & > 0 \\
+p \cdot q & > 0
+\end{align*}
+\item warunek równości dwóch liczb wymiernych
+Niech $a,b\in\mathbb{Q}$ oraz niech $a = \frac{p}{q}$ oraz $b = \frac{p'}{q'}$, wówczas
+$$ a = b \iff p\cdot q' = p' \cdot q$$
+Ponadto, zakładając $q, q' >0$ otrzymujemy
+\begin{align*}
+a<b & \iff p\cdot q' < p' \cdot q \\
+a>b & \iff p\cdot q' > p' \cdot q 
+\end{align*}
+\end{enumerate}
+
+\subsection{Niewymierność $\sqrt{2}$}
+
+Pokażemy, że pierwiastek z dwóch nie jest liczbą wymierną, tj. $\sqrt{2} \notin \mathbb{Q}$.
+%\begin{cor}
+%Pierwiastek z dwóch jest liczbą niewymierną.
+%\end{cor}
+\begin{proof}
+Dowód będziemy prowadzić nie wprost. 
+Przypuśćmy nie wprost, że $\sqrt{2} \in \mathbb{Q}$, wówczas muszą istnieć $p,q\in\mathbb{N}$, że
+$$ \sqrt{2} = \frac{p}{q},$$
+a ułamek ten jest nieskracalny.
+
+Równoważnie możemy napisać
+\begin{align*}
+q\sqrt{2} &= p \quad \mbox{podnosząc do kwadratu stronami}\\
+2 q^2 &= p^2
+\end{align*}
+Zauważmy, że wynika stąd, że $p^2$ jest parzyste, to oznacza, że także $p$ jest parzyste, czyli $\exists n\in\mathbb{N}$, że $p = 2n$. Wstawiając, otrzymujemy
+\begin{align*}
+2q^2 &= 4 n^2 \\
+q^2 & = 2 n^2
+\end{align*}
+Stosując powyższe rozumowanie otrzymujemy, że $\exists m \in \mathbb{N}$, że $q = 2m$. Widzimy więc sprzeczność z założeniem, że ułamek $\frac{p}{q}$ był nieskracalny (jako, że zarówno licznik jak i mianownik są podzielne przez 2). Sprzeczność ta dowodzi tezy.
+\end{proof}
+ 
+\subsection{Niewymierność $\log_{10} 5$}
+Pokażemy, że liczba $\log_{10} 5$ jest niewymierna.
+Podobnie jak powyżej, dowód będzie prowadzony nie wprost.
+
+\begin{proof}
+Przypuśćmy, że $\log_{10}5 = \frac{p}{q}$, gdzie $p,q\in\mathbb{N}$. Jest to równoważne następującemu wyrażeniu
+\begin{align*}
+ 5 &= 10^{\frac{p}{q}} \\
+ 5^q & = 10^p.
+\end{align*}
+
+Zauważmy, że powyższa równość jest niemożliwa pośród liczb naturalnych (ze względu na podzielność przez $2$). 
+
+\end{proof}
+
+

@@ -1,2 +1,140 @@
-\section{Section heading}
-rodzial0X-podrozdzial02
+\section{Przekroje}
+Niech $A$, $B$ będą zbiorami liczb. Niech $a,b,p,q$ będą liczbami, elementami zbiorów.
+
+Równość zbiorów $A$ i $B$ definiujemy następująco
+$$ A = B \iff (a\in A \implies a\in B) \wedge (a\in B \implies a\in A), $$
+mówimy, że dwa zbiory nie są równe, gdy
+$$ A \neq B \iff \exists a \in A | a\notin B \vee \exists a \in B | a \notin A$$
+
+Niech $A$ będzie zbiorem liczb wymiernych mniejszych niż $\sqrt{2}$, zauważmy, że wówczas
+\begin{align*}
+A & = \{ p \in \mathbb{Q} | p < \sqrt{2} \} \; \mbox{nie ma liczby największej} \\
+B & = \{ p \in \mathbb{Q} | p > \sqrt{2} \} \; \mbox{nie ma liczby najmniejszej}.
+\end{align*}
+
+\begin{proof}
+Pokażemy najpierw, że nie może w $A$ istnieć element największy. 
+Niech $p\in A$, pokażemy, że istnieje $k>0$, że $(p+k)\in A$.
+
+Zauważmy, że biorąc $k <\min \left( 1,\frac{2-p^2}{2p+1} \right)$ otrzymujemy
+\begin{align*}
+(p+k)^2 &< 2 \\
+p^2 + 2pk + k^2 & < 2 \\
+p^2 + k(2p+k) & < p^2 + \frac{2-p^2}{2p+1} \left( 2p + 1\right)  = p^2 . 
+\end{align*}
+
+Pokażemy teraz, że dla $q\in B$ znajdziemy takie $h >0 $, że $q-h \in B$.
+Weźmy $h = \frac{q^2 - 2}{2q}.$  Łatwo możemy zauważyć, że $h \in \mathbb{Q}$ (jako iloraz dwóch liczb wymiernych).
+
+Policzmy wartość 
+$$ (q-h)^2 = q^2 - 2 \frac{q^2-2}{2q}q + h^2 = 2+h^2 > 2.$$
+Tak więc dobierając $h$ w zadany sposób możemy zawsze wskazać liczbę mniejszą $q-h$, która także należy do $B$.
+\end{proof}
+
+\subsection{Gęstość liczb wymiernych}
+Pomiędzy dwiema dowolnymi liczbami wymiernymi zawsze znajdziemy liczbę wymierną.
+
+\begin{proof}
+Niech $p,q\in \mathbb{Q}$ wówczas 
+$$ p < \frac{p+q}{2} < q $$
+oraz $$ \frac{p+q}{2} \in \mathbb{Q}.$$
+\end{proof}
+
+\subsection{Metoda przekrojów Dedekinda}
+\begin{definicja}
+Zbiór $\alpha$ liczb wymiernych nazywamy przekrojem, jeżeli:
+\begin{enumerate}
+\item[a)] $\alpha$ nie zawiera wszystkich liczb wymiernych oraz $\alpha$ zawiera co najmniej 1 liczbę wymierną,
+\item[b)] $p\in\alpha, q<p \implies q\in\alpha$,
+\item[c)] $\alpha$ nie ma liczby największej.
+\end{enumerate}
+\end{definicja}
+
+Przekrojem jest na przykład zbiór $A$ z poprzedniego przykładu.
+
+\begin{twierdzenie}
+Jeżeli $p\in\alpha \wedge q\notin \alpha$, to $p<q$ dla $q\in\mathbb{q}$.
+\end{twierdzenie}
+\begin{proof}
+Przypuśćmy nie wprost, że $q < p$, na mocy warunku $b)$ z definicjji przekroju wnioskujemy, że $q\in\alpha$, co jest sprzeczne z założeniem.
+\end{proof}
+
+\begin{twierdzenie}
+Niech $r\in\mathbb{Q}$ oraz $\alpha = \{ p\in\mathbb{Q} | \, p<r \}$ - wtedy $\alpha$ jest przekrojem.
+\end{twierdzenie}
+\begin{proof}
+Warunki $a)$, $b)$ są spełnione w sposób oczywisty.
+
+Warunek $c)$ - niech $p\in\alpha$ czyli $p<r$. Wtedy $p < \frac{p+r}{2} < r$ oraz $\frac{p+r}{2}\in\alpha.$
+\end{proof}
+
+\begin{definicja}
+Przekrój zadany jak w powyższym twierdzenimu nazywamy przekrojem wymiernym.
+\end{definicja}
+Zauważmy, że zbiór $\mathbb{Q}/\alpha$ ma liczbę najmniejszą $r$.
+
+\begin{definicja}
+Niech $\alpha$, $\beta$ będą przekrojami.
+\begin{align*}
+\alpha = \beta & \iff p\in\alpha \iff p\in\beta \\
+\alpha < \beta & \iff \exists p \in B \,: \, p \notin \alpha \\
+\alpha > \beta  & \iff \exists q \in \alpha \,:\, q \notin B \\
+\alpha \leq \beta & \iff \alpha < \beta \vee \alpha = \beta \\
+0^* & = \{ p\in\mathbb{Q} \, : \, p<0 \}
+\end{align*}
+ Mówimy, że 
+\begin{enumerate}
+\item[] $\alpha$ jest dodatni, jeżeli $\alpha > 0^*$,
+\item[] $\alpha$ jest ujemny, jeżeli $\alpha < 0^*$,
+\item[] $\alpha$ jest niejemny, jeżeli $\alpha \geq 0^*$,
+\item[] $\alpha$ jest niedodatni, jeżeli $\alpha \leq 0^*$.
+\end{enumerate}
+\end{definicja}
+
+\begin{twierdzenie}
+Niech $\alpha$, $\beta$ będą przekrojami. Wtedy
+$$ \alpha = \beta \quad \mbox{albo}\quad \alpha<\beta\quad\mbox{albo}\quad\alpha>\beta.$$
+\end{twierdzenie}
+	
+\begin{proof}
+Rozważmy dwa przypadki. Jeżeli każdy element $\alpha$ jest elementem $\beta$ i na odwrót to w oczywisty sposób przekroje te muszą być równe. 
+
+W przeciwnym przypadku istnieje element, który nie należy do jednego z przekrojów, pokażemy, że nie może wówcas równocześnie zachodzić, że $\alpha >\beta \land \beta>\alpha.$
+
+
+Dowód prowadzimy nie wprost
+
+Niech $\alpha$ będzie zbiorem liczb mniejszych od $p$, a $\beta$ mniejszych od $q$. 
+Wówczas\\
+(1) $\alpha >\beta \Rightarrow \exists{p'\in \alpha}\,:\,p'\not \in \beta$\\
+(2) $\beta >\alpha \Rightarrow \exists{q'\in \beta}\,:\,q'\not \in \alpha$\\
+(1)$\implies p'\in \beta \Rightarrow p'<q \land q'\not \in \beta \implies q'>q \implies p'<q'$\\
+(2)$\implies q'\in \alpha \implies q'<p \land p'\not \in \alpha \implies p'>p \implies q'<p'$.
+
+ Stąd otrzymujemy, że $p'<q'<p'\implies p'<p'$ co jest sprzeczne.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
