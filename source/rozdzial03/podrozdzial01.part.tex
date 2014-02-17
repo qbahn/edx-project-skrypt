@@ -1,2 +1,222 @@
-\section{Section heading}
+\section{Ciągi liczbowe}
+W tym rozdziale, zajmiemy się szczególną klasą funkcji, jaką stanowią ciągi liczbowe. Wprowadzimy pojęcie granicy ciągu oraz przedstawimy najważniejsze twierdzenia dotyczące tego tematu. Zaprezentujemy również przykłady, ilustrujące liczenie granic zarówno w oparciu o definicję, jak i poznane twierdzenia.\\
+Na początku, zdefiniujmy pojęcie ciągu liczbowego.
+\begin{definicja}
+Funkcję $a:\mathbb{N}\rightarrow \mathbb{C}$ nazywamy nieskończonym ciągiem liczbowym. Wartości tej funkcji oznaczamy przez $a_{j}=a(j)$, $j\in \mathbb{N}$, zaś cały ciąg w skrócie zapisywać będziemy jako $\{a_{j}\}_{j=1}^{\infty}$ lub  $\{a_{j}\}$ .
+\end{definicja}
+\begin{przyklad}
+Ciągami są:
+\begin{enumerate}
+\item $\{\frac{1}{n}\}$, o początkowych wyrazach $1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots$
+\item $\{n\}$, o początkowych wyrazach $1, 2, 3, 4, \dots$
+\item $\{(-1)^n \}$, o początkowych wyrazach $-1, 1, -1, 1, \dots$
+\end{enumerate}
+\end{przyklad}
+Ciągi możemy definiować też w sposób rekurencyjny, to znaczy nie poprzez podanie jawnego wzoru na $n-$ty wyraz, lecz zależności pozwalającej na obliczenie wartości danego elementu w ciągu na podstawie informacji o poprzedzających go wyrazach.  
+\begin{przyklad}
+Niech $a_1=\sqrt{2}$. Określamy $a_{n+1}=\sqrt{2+a_n}$, $n \geq 1$. \\
+Na podstawie powyższej zależności, możemy obliczyć: \\
+$a_2=\sqrt{2+\sqrt{2}}$\\
+$a_3=\sqrt{2+\sqrt{2+\sqrt{2}}}$\\
+itd.
+\end{przyklad}
+Niezwykle ważnym pojęciem, opisującym zachowanie nieskończonych ciągów liczbowych, jest pojęcie granicy ciągu.  Intuicyjnie, jest to taka wartość, w której dowolnym otoczeniu znajdują się prawie wszystkie (to znaczy wszystkie, poza skończoną ilością) wyrazy ciągu. Formalna definicja pochodzi od francuskiego matematyka Augustina Cauchy'ego i brzmi ona następująco:
+\begin{definicja}\label{granica}
+Mówimy, że ciąg $\{a_n\}$ ma granicę $g$ (jest zbieżny do $g$) i zapisujemy $\lim\limits_{n \to \infty} a_n = g$, jeżeli
+\begin{equation}\label{granica_warunek}
+\forall_{\varepsilon >0}\exists_{\delta>0}\forall_{n>\delta}\ |a_n-g|<\varepsilon
+\end{equation}
+Ciąg, który nie posiada granicy skończonej, nazywamy rozbieżnym.
+\end{definicja}
+\begin{przyklad}\label{1/n}
+Ciąg $\{a_n\}$, dany wzorem $a_n=\frac{1}{n}$, ma granicę równą $0$. \\
+Wstawiając ciąg $\{\frac{1}{n}\}$ i $g=0$ do warunku (\ref{granica_warunek}), dostajemy:
+\begin{displaymath}
+\forall_{\varepsilon >0}\exists_{\delta>0}\forall_{n>\delta}\ \frac{1}{n}<\varepsilon
+\end{displaymath}
+Jak łatwo zauważyć, powyższe zdanie jest prawdziwe - wystarczy bowiem, przy ustalonym $\varepsilon$, przyjąć $\delta=\frac{1}{\varepsilon}$ i ostatnia nierówność będzie spełniona. 
+\end{przyklad}
+\begin{przyklad}
+Pokażemy, że $\lim\limits_{n \to \infty}(1+\frac{(-1)^n}{n})=1$.\\
+Wstawiając $a_n=1+\frac{(-1)^n}{n}$ oraz $g=1$ do warunku (\ref{granica_warunek}), dostajemy:
+\begin{displaymath}
+\forall_{\varepsilon >0}\exists_{\delta>0}\forall_{n>\delta}\ |1+\frac{(-1)^n}{n}-1|<\varepsilon,
+ \end{displaymath}
+a po uproszczeniu:
+\begin{displaymath}
+\forall_{\varepsilon >0}\exists_{\delta>0}\forall_{n>\delta}\ \frac{1}{n}<\varepsilon
+\end{displaymath}
+Powyższy warunek zachodzi, tak jak w przykładzie \ref{1/n}.
+\end{przyklad}
+\begin{przyklad}
+Ciąg stały $a_n=1$ ma granicę równą $1$.\\
+Analogicznie jak w powyższych przykładach, wstawiając $a_n=1$ i $g=1$ do warunku z definicji \ref{granica}, dostajemy
+\begin{displaymath}
+\forall_{\varepsilon >0}\exists_{\delta>0}\forall_{n>\delta}\ 0<\varepsilon
+\end{displaymath}
+Powyższe zdanie, jest prawdziwe niezależnie od wyboru $\delta$, możemy więc przyjąć dowolne $\delta>0$.
+\end{przyklad}
+\begin{przyklad}\label{i^n}
+Ciąg $a_n=i^n$, gdzie $i^2=-1$, nie ma granicy. \\
+Aby to udowodnić, zobaczmy najpierw, jak zachowują się kolejne wyrazy ciągu.\\
+$a_1=i$ \\
+$a_2=i^2=-1$\\
+$a_3=i^3=-i$\\
+$a_4=i^4=1$\\
+$a_5=i^5=i$\\
+$\dots$\\
+Widzimy, że ciąg przyjmuje tylko cztery wartości: $i$, $-1$, $-i$, $1$, które powtarzają się cyklicznie. Ponieważ każda z nich występuje  w ciągu nieskończenie wiele razy, tylko wśród nich możemy szukać granicy $a_n$.\\
+Zauważmy jednak, że dla $\varepsilon<\frac{1}{2}$, warunek $|i^n-1|<\varepsilon$ nie jest spełniony dla nieskończonej ilości wyrazów, bowiem odległość każdej z liczb: $i$, $-1$, $-i$ od $1$ na płaszczyźnie zespolonej jest większa od $1$. To samo zachodzi w przypadku, gdy po lewej stronie nierówności, liczbę $1$ zastąpimy którąkolwiek z pozostałych możliwych granic. Oznacza to, że $\lim\limits_{n \to \infty} i^n$ nie istnieje.
+\end{przyklad}
+W analizie często używa się też pojęcia ciągu ograniczonego, którego definicja wydaje się być zgodna z intuicją.
+\begin{definicja}
+Ciąg $\{a_{n}\}$ nazywamy ograniczonym z góry, gdy 
+\begin{displaymath}
+\exists_{M>0}\forall_{n\in \mathbb{N}}\ a_n\leq M.
+\end{displaymath}
+Analogicznie definiujemy ciąg ograniczony z dołu. 
+\\Ciąg, który jest ograniczony z góry i dołu,  nazywamy ograniczonym.
+\end{definicja}
+Dla pewnych rozbieżnych ciągów nieograniczonych, wprowadza się pojęcie granicy niewłaściwej w $+\infty$ lub $-\infty$.
+\begin{definicja}
+Niech będzie dany ciąg liczb rzeczywistych $\{a_n\}$. Wtedy:
+\begin{displaymath}
+\lim_{n \to \infty}{a_n}=+\infty :\iff \forall_{M>0}\exists_{\delta>0}\forall_{n>\delta}\ a_n>M
+\end{displaymath}
+\begin{displaymath}
+\lim_{n \to \infty}{a_n}=-\infty :\iff \forall_{M<0}\exists_{\delta>0}\forall_{n>\delta}\ a_n<M
+\end{displaymath}
+\end{definicja}
+\begin{przyklad}
+Ciąg $a_n=n^2$ nie jest ograniczony.\\
+Rzeczywiście, dla dowolnego $M>0$, istnieje $n \in \mathbb{N}$ takie, że $n^2>M$. \\
+Co więcej, $\lim\limits_{n \to \infty}{n^2}=+\infty$
+\end{przyklad}
+Poniższa uwaga jest oczywistą konsekwencją przyjętej definicji granicy i może być przydatna w dalszych rozważaniach na temat ciągów liczbowych.
+\begin{cor}
+Ciąg $\{a_n\}$ ma granicę $g$ wtedy, i tylko wtedy gdy ciąg $\{a_n-g\}$ ma granicę $0$.
+\end{cor}
+Przejdziemy teraz do udowodnienia twierdzeń podających podstawowe własności granic oraz kryteria zbieżności ciągów.
+\begin{twierdzenie} 
+\begin{enumerate}%nie wiem, jak to spuścić do następnej linii
+\item Ciąg zbieżny nie może mieć dwóch różnych granic.
+\item Jeżeli prawie wszystkie wyrazy ciągu $\{a_n\}$ spełniają nierówność: \\
+$a_n\leq M$ i $\lim\limits_{n \to \infty}{a_n}=g$, to $g\leq M$.\\ Analogicznie, gdy prawie wszystkie wyrazy ciągu $a_n\geq M$, wtedy\\
+ $g\geq M$.
+\item $\lim\limits_{n \to \infty}{|a_n|}= 0$ wtedy, i tylko wtedy, gdy $\lim\limits_{n \to \infty}{a_n}=0$
+\end{enumerate}
+\end{twierdzenie}
+\begin{proof}
+\begin{enumerate}%j.w.
+\item Przeprowadzimy dowód metodą nie-wprost.\\
+ Przypuścmy, że istnieją $g$ i $g'$ takie, że $\lim\limits_{n\to \infty}{a_n}=g$ i $\lim\limits_{n\to \infty}{a_n}=g'$ oraz $g \neq g'$.\\
+ Oznacza to, że prawdziwe są następujące warunki: \\
+$ \forall_{\varepsilon >0}\exists_{\delta_1>0}\forall_{n>\delta_1}\ |a_n-g|<\varepsilon$ \\
+$ \forall_{\varepsilon >0}\exists_{\delta_2>0}\forall_{n>\delta_2}\ |a_n-g'|<\varepsilon$\\
+Biorąc    $\varepsilon =\frac{|g-g'|}{2}$, dostajemy:\\
+$|g-g'|=|g-a_n+a_n-g'|\leq |a_n-g|+|a_n-g'|$, co dla $n>\max\{\delta_1, \delta_2\}$ pociąga za sobą nierówność: $|g-g'|<\frac{|g-g'|}{2} + \frac{|g-g'|}{2}'=|g-g'|$. \\
+Ta sprzeczność kończy dowód faktu $1$.
+\item Podobnie jak w punkcie $1.$, dowód przeprowadzimy metodą nie-wprost.\\ 
+Niech $a_n\leq M$ dla prawie wszystkich wyrazów $a_n$, $\lim\limits_{n \to \infty}{a_n}=g$ i niech $g>M$.
+Wówczas, biorąc w definicji granicy $0<\varepsilon_0 <g-M$, dostajemy, że dla $n>\delta =\delta(\varepsilon_0)$ zachodzi  
+$a_n>-\varepsilon_0+g>M$, co jest sprzeczne z założeniem, że $a_n \leq M$ dla prawie wszystkich wyrazów $a_n$. 
+\item Równoważność przedstawionych warunków, wynika natychmiast z faktu, że $||a_n|-0|=|a_n|$.
+\end{enumerate}
+\end{proof}
+W kontekście badania zbieżności ciągów liczbowych, ważnym problemem jest ich monotoniczność.
+\begin{definicja}
+Ciąg $\{a_n\}$, $a_n\in \mathbb{R}$, $n=1, 2, 3, \dots$ nazywamy:
+\begin{enumerate}
+\item rosnącym, gdy $a_{n+1}\geq a_n$
+\item malejącym, gdy $a_{n+1}\leq a_n$
+\item silnie rosnącym, gdy $a_{n+1}>a_n$
+\item silnie malejącym, gdy $a_{n+1}<a_n$
+\end{enumerate}
+Mówimy, że ciąg jest monotoniczny, jeżeli jest rosnący lub malejący.
+\end{definicja}
+Następne twierdzenie ukazuje związek pomiędzy własnościami ciągów, takimi jak ograniczoność i monotoniczność, a ich zbieżnością. Ponadto, dostarcza ono praktycznej informacji, ułatwiającej wyznaczenie granic ciągów przy pomocy pewnych oszacowań ich wyrazów przez ciągi o łatwych do policzenia granicach.
+\begin{twierdzenie}\label{kryteria}(Kryteria zbieżności ciągów)
+\begin{enumerate}
+\item Każdy ciąg monotoniczny i ograniczony jest zbieżny.
+\item Jeżeli $a_n\leq b_n\leq c_n$ dla $n\geq n_0$ oraz $\lim_{n \to \infty}{a_n}=\lim_{n \to \infty}{c_n}=g$, to\\ $\lim_{n \to \infty}{b_n}=g$.\footnote{Twierdzenie to nazywane jest twierdzeniem o trzech ciągach}
+\item Każdy ciąg zbieżny jest ograniczony.
+\end{enumerate}
+\end{twierdzenie}
+\begin{proof}
+\begin{enumerate}
+\item Niech ciąg $\{a_n\}_{n=1}^{\infty}$ będzie ciągiem rosnącym i ograniczonym z góry (dowód dla ciągu malejącego i ograniczonego z dołu, przeprowadza się analogicznie). Pokażemy, że ciąg $\{a_n\}$ jest zbieżny do swojego kresu górnego, czyli że $\lim\limits_{n\to \infty}{a_n}=\sup_{n\in \mathbb{N}}{a_n}=g$. Z definicji kresu górnego otrzymujemy od razu, że:\\
+ $\forall_{\varepsilon >0}\forall_{n\in \mathbb{N}}\ a_n<g+\varepsilon$,\\
+  a także:\\
+   $\forall_{\varepsilon >0}\exists_{n_0\in \mathbb{N}}\ g-\varepsilon <a_{n_0}$.\\
+ Z faktu, że ciąg jest rosnący dostajemy natomiast, że dla $n>n_0$:\\
+  $g-\varepsilon<a_{n_0}\leq a_n < g+ \varepsilon$. \\
+  W konsekwencji, $|a_n-g|<\varepsilon$ dla $n>n_0$, co dowodzi zbieżności ciągu $a_n$.
+\item Niech $a_n\leq b_n\leq c_n$ dla $n\geq n_0$ i niech $\lim_{n \to \infty}{a_n}=\lim_{n \to \infty}{c_n}=g$.\\
+Stosując definicję granicy do ciągów $a_n$, $c_n$, dostajemy:\\
+$\forall_{\varepsilon>0}\exists_{\delta_1>0}\forall_{n>\delta_1}\ |a_n-g|<\varepsilon$ \\ $\forall_{\varepsilon>0}\exists_{\delta_2>0}\forall_{n>\delta_2}\ |c_n-g|<\varepsilon$. \\
+Stąd, dla $n>\max\{\delta_1,\delta_2, n_0\}$ zachodzi:\\
+ $g-\varepsilon < a_n \leq b_n \leq c_n< g+ \varepsilon$.\\
+ Ostatecznie, $|b_n-g|<\varepsilon$ dla dostatecznie dużych $n$ i ciąg $b_n$ jest zbieżny do $g$.
+\item Niech ciąg $\{a_n\}_{n=1}^{\infty}$ będzie zbieżny oraz niech $\varepsilon =1$. Wtedy istnieje takie $\delta$, że dla $n>\delta$ zachodzi $g-1<a_n<g+1$, czyli\\
+$\min\{a_1,a_2,\dots ,a_{n_0},g-1\}\leq a_n\leq \max\{a_1,a_2,\dots ,a_{n_0}, g+1\}$,\\
+ gdzie $n_0\leq \delta$ i $n_0+1>\delta$. Oznacza to, że ciąg jest ograniczony z góry przez $M=\max\{a_1,a_2,\dots ,a_{n_0}, g+1\}$, a z dołu przez \\ $m=\min\{a_1,a_2,\dots ,a_{n_0},g-1\}$.
+\end{enumerate}
+\end{proof}
+\begin{przyklad}
+Rozważmy ciąg $s_n=1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots+\frac{1}{n!}$.\\
+Jak łatwo zauważyć, ciąg ten jest rosnący, bowiem dla dowolnego $n \in \mathbb{N}$, $s_{n+1}-s_n=\frac{1}{(n+1)!}>0$.\\
+Dowodzi się również, że dla każdego $n$, $s_n<3$, a więc ciąg jest ograniczony. Na mocy punktu $1.$ z twierdzenia 
+\ref{kryteria}, możemy wnioskować, że ciąg $s_n$ jest zbieżny.\\
+Ponieważ granica powyższego ciągu jest liczbą, mającą szczególne znaczenie w analizie matematycznej, wprowadza się dla niej szczególne oznaczenie.
+\begin{definicja}
+Liczbą Eulera $e$, nazywamy liczbę 
+\begin{displaymath}
+e:=\lim_{n \to \infty} s_n, 
+\end{displaymath}
+gdzie $s_n=1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots+\frac{1}{n!}$.
+\end{definicja}
+\end{przyklad}
+\begin{przyklad}
+Korzystając z twierdzenia o trzech ciągach, pokażemy, że \\
+$\lim\limits_{n \to \infty}\frac{1}{\sqrt{n^2+1}}=0$.\\
+Niech $b_n=\frac{1}{\sqrt{n^2+1}}$, $a_n=0$, $c_n=\frac{1}{n}$. Wówczas, dla wszystkich $n \in \mathbb{N}$, zachodzą nierówności $a_n \leq b_n \leq c_n$.\\
+Ponadto, na podstawie przykładu \ref{1/n} wiemy, że $\lim\limits_{n \to \infty}c_n=0$ i z oczywistych względów $\lim\limits_{n \to \infty}a_n=0$. Oznacza to, że ciąg $b_n$ zbiega do tej samej granicy, a więc $\lim\limits_{n \to \infty}b_n=0$. 
+\end{przyklad}
+Rozważmy teraz ciąg, na który składają się elementy wybrane z innego ciągu zbieżnego, z zachowaniem kolejności, w jakiej występują w ciągu oryginalnym. Następne twierdzenie dostarcza nam informacji na temat zbieżności tak utworzonego ciągu. 
+\begin{definicja}
+Niech będzie dany ciąg $\{a_n\}_{n=1}^{\infty}$ i niech $\{n_k\}_{k=1}^{\infty}$ będzie silnie rosnącym ciągiem liczb naturalnych. Wtedy ciąg $\{a_{n_k}\}_{k=1}^{\infty}$ nazywamy podciągiem ciągu $\{a_n\}$.
+\end{definicja}
+\begin{twierdzenie}
+Każdy podciąg ciągu zbieżnego jest zbieżny do tej samej granicy.
+\end{twierdzenie}
+\begin{proof}
+Niech ciąg $\{a_n\}_{n=1}^{\infty}$ ma granicę $g$ oraz niech $\{n_k\}_{k=1}^{\infty}$ będzie dowolnym silnie rosnącym ciągiem liczb naturalnych. Korzystając z definicji granicy do ciągu $a_n$, dostajemy, że:\\
+$\forall_{\varepsilon>0}\exists_{\delta>0}\forall_{n>\delta}\ |a_n-g|<\varepsilon$\\
+  Zauważmy, że ciąg $\{n_k\}$ nie jest ograniczony z góry, dlatego możemy wskazać takie $k_0$, że $n_{k_0}>\delta$. Z faktu, że ciąg $\{n_k\}$ jest silnie rosnący wynika, że dla każdego $k>k_0$ zachodzi $n_k>n_{k_0}$. Oznacza to, że:\\
+  $\forall_{\varepsilon>0}\exists_{k_0>0}\forall_{k>k_0}\ |a_{n_k}-g|<\varepsilon$,\\
+  czyli $\lim\limits_{k \to \infty}a_{n_k}=g$.
+\end{proof}
+Powyższe twierdzenie mówi nam, że zbieżność danego ciągu liczbowego pociąga za sobą zbieżność każdego z jego podciągów do tej samej granicy. Oczywiście, na podstawie faktu, że pewien podciąg posiada granicę skończoną, nie możemy wnioskować, że ma ją również cały ciąg. Dla wyróżnienia granic poszczególnych podciągów, wprowadza się pojęcie punktu skupienia ciągu, będące pewnym uogólnieniem pojęcia granicy.
+\begin{definicja}
+Liczbę $s$ nazywamy punktem skupienia ciągu $\{a_n\}$, jeśli 
+\begin{displaymath}
+\forall_{\varepsilon>0}\exists_{n_0}\ |a_{n_0}-s|<\varepsilon.
+\end{displaymath}
+\end{definicja}
+\begin{cor}\label{skupienia}
+Liczba $s$ jest punktem skupienia ciągu $\{a_n\}$ wtedy, i tylko wtedy, gdy istnieje podciag $\{a_{n_k}\}$ ciągu $\{a_n\}$ taki, że $\lim\limits_{k \to \infty}a_{n_k}=s$.
+\end{cor}
+Pojęcie punktu skupienia zilustrujemy na przykładzie dwóch prostych ciągów.
+\begin{przyklad}
+Rozważmy ciąg $\{a_n\}$ zadany wzorem $a_n=(-1)^n$. Jego wyrazy przyjmują tylko dwie wartości: $-1$, w przypadku wyrazów o numerach nieparzystych oraz $1$, dla wyrazów o parzystych numerach. Możemy więc, z powyższego ciągu, wybrać dwa podciągi: $\{a_{2n-1}\}$ oraz $\{a_{2n}\}$, zbieżne do dwóch różnych granic: $-1$ i $1$. Oznacza to, że liczby $-1$ i $1$ są punktami skupienia ciągu $a_n$ na mocy uwagi \ref{skupienia}. Co więcej, ponieważ nie istnieje podciąg zbieżny do innej granicy, są to jedyne punkty skupienia rozważanego ciągu.
+\end{przyklad}
+\begin{przyklad}
+Powróćmy do ciągu $\{i^n\}$ o wartościach zespolonych, rozważanego w przykładzie \ref{i^n}. Jak pamiętamy, wyrazy tego ciągu należały do zbioru $\{1, i, -1, -i \}$. Rozważając więc stałe podciągi:\\
+$a_{4n}=1$\\
+$a_{4n+1}=i$\\
+$a_{4n+2}=-1$\\
+$a_{4n+3}=-i$\\
+oraz ich granice, dostajemy natychmiast, że punktami skupienia ciągu $\{i^n\}$ są liczby: $1, i, -1, -i$.
+\end{przyklad}
+
 rodzial0X-podrozdzial01
